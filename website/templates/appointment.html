@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Agendamento {% endblock %}
+
+{% block content %}
+     <!--  ************************* Page Title Starts Here ************************** -->
+               <div class="page-nav no-margin row">
+                   <div class="container">
+                       <div class="row">
+                           <h2>Agendamento</h2>
+                           <ul>
+                               <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                               <li><i class="fas fa-angle-double-right"></i> Agendamento</li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+            
+        {% if your_name %}
+            <center>
+                <h1>Reveja as informações</h1>
+                <strong>Seu nome: </strong>{{your_name}}<br/>
+                <strong>Telefone: </strong>{{your_phone}}<br/>
+                <strong>E-mail: </strong>{{your_email}}<br/>
+                <strong>Endereço: </strong>{{your_address}}<br/>
+                <strong>Horário: </strong>{{your_schedule}}<br/>
+                <strong>Mensagem: </strong>{{your_message}}<br/>
+                
+                    <br/><br/><br>
+                    <strong>Nota: </strong>Este horário não foi agendado. Nós iremos entrar em contato para confirmar seu agendamento.
+            </center>
+            <br/><br/><br/><br/>
+        {% else %}
+        <div class="row contact-rooo no-margin">
+            <div class="container">
+            <div class="row">
+                
+            
+                <div style="padding:20px" class="col-sm-6">
+                    <form action="{% url 'appointment' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label>Nome :</label></div>
+                            <div class="col-sm-8"><input type="text" placeholder="Nome" name="your-name" class="form-control input-sm"  ></div>
+                        </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label>Telefone :</label></div>
+                            <div class="col-sm-8"><input type="text" name="your-phone" placeholder="Telefone" class="form-control input-sm"  ></div>
+                        </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label>Email :</label></div>
+                            <div class="col-sm-8"><input type="email" name="your-email" placeholder="Email" class="form-control input-sm"  ></div>
+                        </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label>Endereço :</label></div>
+                            <div class="col-sm-8"><input type="text" name="your-address" placeholder="Endereço" class="form-control input-sm"  ></div>
+                        </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label>Horário:</label></div>
+                            <div class="col-sm-8">
+                            <select name="your-schedule" class="form-control">
+                                <option value="Escolha o seu horário">Escolha o seu horário</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label>Mensagem:</label></div>
+                            <div class="col-sm-8">
+                            <textarea rows="5" placeholder="Mensagem" class="form-control input-sm" name="your-message"></textarea>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
+                            <div class="col-sm-8">
+                            <button class="btn btn-success btn-sm">Agendar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                    
+                
+            </div>
+
+                </div>
+            </div>
+            
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} {% endblock %}</title>
+
+    <link rel="shortcut icon" href="{% static 'website/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'website/css/fontawsom-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'website/plugins/slider/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'website/plugins/slider/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/css/style.css' %}" />
+</head>
+
+<body>
+
+    <!-- ################# Header Starts Here#######################--->
+
+    <header id="menu-jk">
+        <nav  class="">
+            <div class="container">
+                <div class="row nav-ro">
+                   <div class="col-lg-3 col-md-4 col-sm-12">
+                       <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                   </div>
+                   <div id="menu" class="col-lg-7 col-md-8 d-none d-md-block no-padding">
+                       <ul>
+                            <li><a href="{% url 'home' %}">Inicial</a></li>
+                            <li><a href="{% url 'contact' %}">Contato</a></li>
+                            <li><a href="{% url 'appointment' %}">Agendamento</a></li>
+                        </ul>
+                   </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <div class="copy">
+        <div class="container">
+            <a href="https://www.smarteyeapps.com/">2022 &copy; Todos os direitos reservados | Projetado e Desenvolvido por Smarteyeapps</a>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="{% static 'website/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'website/js/popper.min.js' %}"></script>
+<script src="{% static 'website/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'website/plugins/scroll-fixed/jquery-scrolltofixed-min.js' %}"></script>
+<script src="{% static 'website/plugins/slider/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'website/js/script.js' %}"></script>
+
+
+</html>
